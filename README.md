@@ -14,6 +14,8 @@ git push -u origin main
 
 
 
+codes for pushing the git second time
+
 git remote add origin https://github.com/Abdullah1Jubair/ByteBite-Restaurant-Ordering-System.git
 
 git branch -M main
