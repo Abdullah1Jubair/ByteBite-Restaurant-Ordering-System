@@ -1,0 +1,90 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background */
+body {
+    height: 100vh;
+    background-image: url('b2.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.login-box {
+    background: #dfd4d4;
+    padding: 40px;
+    width: 350px;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Title */
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.login-box input,
+.login-box select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Button */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background: #4338ca;
+}
+
+/* Link */
+.link-text {
+    text-align: center;
+    margin-top: 15px;
+}
+.link-text a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+
+    background: #4f46e5;
+    color: white;
+
+    text-align: center;
+    text-decoration: none;
+
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #4338ca;
+}
+
