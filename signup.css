@@ -1,0 +1,68 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background */
+body {
+    height: 100vh;
+    background-image: url('b2.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Card */
+.signup-box {
+    background: #dfd4d4;
+    padding: 40px;
+    width: 380px;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Title */
+.signup-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.signup-box input,
+.signup-box select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Button */
+.signup-box button {
+    width: 100%;
+    padding: 12px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup-box button:hover {
+    background: #16a34a;
+}
+
+/* Link */
+.link-text {
+    text-align: center;
+    margin-top: 15px;
+}
+.link-text a {
+    color: #22c55e;
+    text-decoration: none;
+}
