@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+<div class="menu-header">
+    <h1> Menu</h1>
+
+    <a href="../cart/show_cart.php" class="show-cart-btn">
+        Show Cart
+    </a>
+</div>
+
+<div id="menu" class="menu-grid"></div>
+
+<a href="../dashboard/dashboard.html" class="back-btn"><-Dashboard</a>
+
+</body>
+</html>
+
+<script>
+fetch("menu_customer.php")
+.then(res => res.json())
+.then(data => {
+    let html = "";
+    data.forEach(item => {
+        html += `
+        <div class="card">
+            <h3>${item.Name}</h3>
+            <p>teka teka ${item.Price}</p>
+            <p>Available: ${item.Quantity}</p>
+            <form action="add_to_cart.php" method="post">
+                <input type="hidden" name="item_id" value="${item.ItemID}">
+                <button>Add to Cart</button>
+            </form>
+        </div>`;
+    });
+    document.getElementById("menu").innerHTML = html;
+});
+</script>
+
+</body>
+</html>

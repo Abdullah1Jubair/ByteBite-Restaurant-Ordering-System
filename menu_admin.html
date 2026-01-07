@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Menu</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+<h1>🛠 Admin Menu Control</h1>
+
+<table id="menuTable">
+<tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    
+</tr>
+</table>
+
+<h2>Add New Item</h2>
+<form action="add_item.php" method="post" class="add-form">
+    <input name="name" placeholder="Food name" required>
+    <input name="price" type="number" placeholder="Price" required>
+    <input name="qty" type="number" placeholder="Quantity" required>
+    <button>Add</button>
+</form>
+
+<script>
+fetch("menu_admin.php")
+.then(res => res.json())
+.then(data => {
+    let table = document.getElementById("menuTable");
+    data.forEach(item => {
+        table.innerHTML += `
+        <tr>
+            <form action="update.php" method="post">
+                <td><input name="name" value="${item.Name}" readonly></td>
+                <td><input name="price" type="number" value="${item.Price}"readonly></td>
+                <td><input name="qty" type="number" value="${item.Quantity}"readonly></td>
+                
+            </form>
+        </tr>`;
+    });
+});
+</script>
+
+</body>
+</html>
