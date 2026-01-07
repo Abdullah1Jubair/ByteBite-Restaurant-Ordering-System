@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+
+<div class="feedback-wrapper">
+
+    <div class="feedback-left">
+        <h2>⭐ Customer Feedback</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Rating</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+            <tbody id="reviewTable">
+                <tr>
+                    <td colspan="3">Loading reviews…</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Add Your Review</h3>
+
+        <form action="feedback_submit.php" method="post">
+            <label>Rating</label>
+            <select name="rating" required>
+                <option value="5">★★★★★ (5)</option>
+                <option value="4">★★★★☆ (4)</option>
+                <option value="3">★★★☆☆ (3)</option>
+                <option value="2">★★☆☆☆ (2)</option>
+                <option value="1">★☆☆☆☆ (1)</option>
+            </select>
+
+            <label>Review</label>
+            <textarea name="review" rows="4" required></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+
+        <a href="../dashboard/dashboard.html">⬅ Back to Dashboard</a>
+    </div>
+
+    <div class="feedback-right">
+        <div class="rating-card">
+            <p class="label">Average Rating</p>
+            <h1 id="avgRating">--</h1>
+            <p class="sub">out of 5</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function escapeHTML(str) {
+    return str.replace(/[&<>"']/g, m => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    }[m]));
+}
+
+fetch("feedback_fetch.php")
+.then(res => {
+    if (!res.ok) throw new Error();
+    return res.json();
+})
+.then(data => {
+    document.getElementById("avgRating").innerText =
+        Number(data.average).toFixed(1);
+
+    let rows = "";
+
+    if (data.reviews.length === 0) {
+        rows = `<tr><td colspan="3">No reviews yet</td></tr>`;
+    } else {
+        data.reviews.forEach(r => {
+            rows += `
+            <tr>
+                <td>#${r.FeedbackID}</td>
+                <td>${r.Ratings}</td>
+                <td>${escapeHTML(r.Review)}</td>
+            </tr>`;
+        });
+    }
+
+    document.getElementById("reviewTable").innerHTML = rows;
+})
+.catch(() => {
+    document.getElementById("reviewTable").innerHTML =
+        `<tr><td colspan="3">Unable to load reviews</td></tr>`;
+});
+</script>
+
+</body>
+</html>
