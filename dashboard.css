@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background image */
+body {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(20,15,10,0.75), rgba(20,15,10,0.75)),
+        url("food_dark_academia.png"); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main dashboard card */
+.dashboard {
+    width: 860px;
+    padding: 45px;
+    border-radius: 22px;
+    background: rgba(25, 18, 14, 0.88);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Title */
+.dashboard h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #f5e6c8;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+/* Role text */
+.role {
+    color: #d6c6a8;
+    margin-bottom: 40px;
+    font-size: 15px;
+}
+
+/* Cards grid */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+/* Individual card */
+.card {
+    background: linear-gradient(145deg, #2a1f18, #1c1511);
+    padding: 36px 20px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #f3e7d3;
+    font-size: 22px;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.35s ease;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* Gold accent line */
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c9a85a, transparent);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-10px) scale(1.04);
+    background: linear-gradient(145deg, #3a2b21, #241a14);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+}
+
+/* Card text */
+.card span {
+    display: block;
+    margin-top: 12px;
+    font-size: 18px;
+    color: #e9dbc3;
+}
+
+/* Logout button */
+.logout {
+    display: inline-block;
+    margin-top: 45px;
+    padding: 14px 38px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    color: #1a120d;
+    background: linear-gradient(135deg, #d4b36a, #b8944b);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+.logout:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #e0c27b, #c9a85a);
+}
